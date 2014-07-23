@@ -52,7 +52,36 @@ int getInt(void)
 	}
 }
 
-void create_pyramid(int pyramid_levels) {std::cout << "Number of levels entered: " << pyramid_levels << std::endl;}
+
+//Creates pyramid using while and for loops.
+//Takes pyramid levels from user via getInt(), then outputs corresponding pyramid.
+void create_pyramid(int pyramid_levels) {
+	//std::cout << "Number of levels entered: " << pyramid_levels << std::endl;
+	
+	//Variable that holds the current level being output, starting from the top (0).
+	int level = 0;
+
+	//Iterates over the levels as they're output until user's requested height is reached.
+	while(level < pyramid_levels) {
+
+		//Outputs appropriate number of spaces for a given level based on the total height.
+		for(int i = pyramid_levels - level - 1; i > 0; i--) {
+			std::cout << " ";
+		}
+
+		//Outputs appropriate number of stars based on level being output.
+		for(int j = (2 * level) + 1; j > 0; j--) {
+			std::cout << "*";
+		}
+
+		//Ends line and moves loop to the next level.
+		std::cout << std::endl;
+		level++;
+	}
+}
+
+
+
 
 int main(void) {
 
