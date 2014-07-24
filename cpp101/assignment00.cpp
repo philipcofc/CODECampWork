@@ -52,12 +52,12 @@ int getInt(void)
 	}
 }
 
-
+/*
+//Version 1:
 //Creates pyramid using while and for loops.
 //Takes pyramid levels from user via getInt(), then outputs corresponding pyramid.
-void create_pyramid(int pyramid_levels) {
-	//std::cout << "Number of levels entered: " << pyramid_levels << std::endl;
-	
+//void create_pyramid(int pyramid_levels) {
+	//std::cout << "Number of levels entered: " << pyramid_levels << std::endl;	
 	//Variable that holds the current level being output, starting from the top (0).
 	int level = 0;
 
@@ -79,8 +79,26 @@ void create_pyramid(int pyramid_levels) {
 		level++;
 	}
 }
+*/
 
+//Version 2:
+//Creates pyramid based on user input, via getInt(), using if/else statement, string objects, and recursion.
+void create_pyramid(int pyramid_levels, int level = 0) {
 
+	//Recursively builds pyramid levels one-by-one using string objects until user's requested height is reached.
+	if(level < pyramid_levels) {
+		std::cout << std::string(pyramid_levels - level - 1, ' ');
+		std::cout << std::string((2 * level) + 1, '*') << std::endl;
+		level++;
+
+		//Calls function on itself to build next level.
+		create_pyramid(pyramid_levels, level);
+	}
+	else {
+		//Ends line and discontinues recursion.
+		std::cout << std::endl;
+	}
+}
 
 
 int main(void) {
